@@ -23,7 +23,9 @@ const theme = createMuiTheme({
             main: "#5b5b5b"
         },
         background: {
-            default: "#e6e3e0"
+            // default: "#e6e3e0"
+            default: "white"
+
         }
     }
 });
