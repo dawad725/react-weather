@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Form from "../Components/Form"
-import { makeStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
 
 import backgroundImage from "../images/blue_sky.jpg"
 
-
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
     title: {
         textAlign: "center",
         margin: "0",
@@ -14,24 +14,47 @@ const useStyles = makeStyles(theme => ({
     backgroundWrapper: {
         background: `url(${backgroundImage}) no-repeat center center`,
         backgroundSize: "cover",
-        marginBottom: "0"
+        // marginBottom: "0"
     }
-}))
+})
 
 
-function Home() {
-    const classes = useStyles();
 
-    return (
+class Home extends Component {
+    constructor() {
+        super()
 
-        <div className={classes.backgroundWrapper}>
-            <h1 className={classes.title}>
-                Dave's Weather Station
+        this.state = {
+            todaysWeather: [],
+            fiveDayForecast: []
+        }
+
+    }
+
+
+
+
+    render() {
+
+        const { classes } = this.props;
+
+        return (
+
+            <div className={classes.backgroundWrapper}>
+                <h1 className={classes.title}>
+                    Dave's Weather Station
                 </h1>
-            <Form />
-        </div>
+                <Form />
+            </div>
 
-    )
+        )
+    }
+
+
 }
 
-export default Home;
+
+
+
+
+export default withStyles(useStyles)(Home);
