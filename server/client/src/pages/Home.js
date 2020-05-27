@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from "../Components/Form"
+import Form from "../components/Form"
 import { withStyles } from '@material-ui/core/styles';
 
 

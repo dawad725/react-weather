@@ -9,7 +9,7 @@ const apiKey = "&appid=1860a69c6a9afd9a53fdd80c14c3bb78"
 export async function searchCity(city) {
     try {
         const res = await axios.get(baseURL + city + apiKey);
-        const data = res.data
+        const { data } = res
         console.log(data)
         return data
     }
