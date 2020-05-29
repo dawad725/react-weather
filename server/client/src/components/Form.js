@@ -1,7 +1,10 @@
+import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Grid } from '@material-ui/core/';
-import { searchCity } from "../services/api";
+import axios from 'axios'
+
+// import { searchCity } from "../services/api";
 // import PropTypes from 'prop-types';
 
 
@@ -21,22 +24,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Form() {
+    let history = useHistory();
+
     const classes = useStyles();
 
     const [city, setCity] = useState('')
     console.log(city, "city")
 
 
-
     const submitValue = (e) => {
         e.preventDefault();
+
         const formValue = {
             "city": city
         }
-        searchCity(formValue.city)
-        console.log(formValue)
 
+        const url = 'http://localhost:5000/search-city';
+
+        axios.post(url, { city: formValue.city })
+        console.log(formValue.city)
+        history.push('./todays-weather')
     }
+
+
 
     return (
         <>

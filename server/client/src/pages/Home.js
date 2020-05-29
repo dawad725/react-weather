@@ -3,18 +3,11 @@ import Form from "../components/Form"
 import { withStyles } from '@material-ui/core/styles';
 
 
-import backgroundImage from "../images/blue_sky.jpg"
-
 const useStyles = theme => ({
     title: {
         textAlign: "center",
         margin: "0",
         padding: "1em"
-    },
-    backgroundWrapper: {
-        background: `url(${backgroundImage}) no-repeat center center`,
-        backgroundSize: "cover",
-        // marginBottom: "0"
     }
 })
 
@@ -40,7 +33,7 @@ class Home extends Component {
 
         return (
 
-            <div className={classes.backgroundWrapper}>
+            <div>
                 <h1 className={classes.title}>
                     Dave's Weather Station
                 </h1>

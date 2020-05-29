@@ -1,0 +1,8 @@
+body {
+        background: url('./images/blue_sky.jpg')no-repeat center center;
+        width: 100%;
+        height: 100vmax;
+        background-position: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+}

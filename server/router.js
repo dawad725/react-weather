@@ -1,16 +1,15 @@
-require('dotenv').config()
-
+require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' });
 const router = require('express').Router();
-const axios = require('axios')
+const axios = require('axios');
 
 let city;
 
 router.post('/search-city', (req, res, next) => {
 
-    city = req.body.city;
+    city = req.body.city
 
     console.log(city)
-    res.end()
+    res.end(city)
 })
 
 
@@ -20,15 +19,14 @@ router.get('/search-city-weather', (req, res) => {
     const baseURL = `http://api.openweathermap.org/data/2.5/weather?q=`;
     const apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}&`
     const units = `units=imperial`
-    console.log("key", process.env.REACT_APP_WEATHER_API_KEY)
+
     const searchedCity = (baseURL, apiKey, units) => {
 
-        let newUrl = baseURL + "buffalo" + apiKey + units;
+        let newUrl = baseURL + city + apiKey + units;
         return newUrl
     }
 
     const apiUrl = searchedCity(baseURL, apiKey, units);
-    console.log("URL STRING ", apiUrl)
 
 
     let data;
