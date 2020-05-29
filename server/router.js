@@ -4,7 +4,7 @@ const axios = require('axios');
 
 let city;
 
-router.post('/search-city', (req, res, next) => {
+router.post('/api/search-city', (req, res, next) => {
 
     city = req.body.city
 
@@ -14,7 +14,7 @@ router.post('/search-city', (req, res, next) => {
 
 
 
-router.get('/search-city-weather', (req, res) => {
+router.get('/api/search-city-weather', (req, res) => {
 
     const baseURL = `http://api.openweathermap.org/data/2.5/weather?q=`;
     const apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}&`

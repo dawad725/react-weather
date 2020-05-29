@@ -39,10 +39,11 @@ export default function Form() {
             "city": city
         }
 
-        const url = 'http://localhost:5000/search-city';
+        const url = '/api/search-city';
 
         axios.post(url, { city: formValue.city })
         console.log(formValue.city)
+        // 
         history.push('./todays-weather')
     }
 
