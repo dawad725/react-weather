@@ -1,27 +1,59 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios'
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
     title: {
         textAlign: "center",
         margin: "0",
-        padding: "1em"
+        padding: "1em",
+        fontSize: "100px"
     }
-}))
+})
 
 
-const Today = () => {
-    const classes = useStyles();
 
-    return (
-        <div className={classes.title}>
-            <p>Today's weather is... </p>
-        </div>
-    )
+class Today extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            weatherData: []
+        }
+
+
+    }
+
+    componentDidMount() {
+
+        axios.get('/api/search-city-weather')
+            .then(weather => {
+                this.setState({ weatherData: weather })
+            })
+            .catch(err => console.log(err))
+
+        console.log("bam!", this.state.weatherData)
+    }
+
+    render() {
+        const { classes } = this.props;
+        console.log("weather DATA", this.state.weatherData)
+
+        return (
+            <div className={classes.title}>
+                <p>Today's weather is... </p>
+            </div>
+        )
+    }
 }
 
 
-export default Today;
+
+
+export default withStyles(useStyles)(Today);
+
+
+
 
 
