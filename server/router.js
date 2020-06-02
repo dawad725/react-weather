@@ -39,7 +39,18 @@ router
 
                 let res = await axios.get(apiUrl)
                 let data = res.data
+                console.log(" datalist", data)
 
+                // let weatherData = {
+                //     "city": data.name,
+                //     "icon": data.weather[0].icon,
+                //     "tempNow": data.main.temp,
+                //     "tempHigh": data.main.temp_max,
+                //     "tempLow": data.main.temp_min,
+                //     "humidity": data.main.humidity,
+                // }
+
+                console.log(data)
                 return data
 
             } catch (e) {
@@ -49,7 +60,7 @@ router
         }
 
         getWeatherData().then(data => {
-            res.send({ data })
+            res.send(data)
         })
 
     })
