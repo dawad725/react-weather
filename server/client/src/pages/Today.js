@@ -26,7 +26,7 @@ class Today extends Component {
 
         axios.get('/api/search-city-weather')
             .then(response => {
-                this.setState({ weatherData: response })
+                this.setState({ weatherData: response.data.main })
             })
             .catch(err => console.log(err))
 
@@ -40,14 +40,14 @@ class Today extends Component {
 
 
     renderWeather() {
-        this.state.weatherData.map((item) => {
-            return <div>{item.data.city}</ div>
-        })
+        // console.log("boom", this.state.weatherData.data.main)
+        return <div>{this.state.weatherData.temp}</div>
     }
 
     render() {
         const { classes } = this.props;
         console.log("WEATHER DATA", this.state.weatherData)
+
 
 
 
