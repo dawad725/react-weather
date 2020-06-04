@@ -44,10 +44,11 @@ router
                 let responseData = {
                     "city": data.name,
                     "icon": data.weather[0].icon,
-                    "tempNow": data.main.temp,
-                    "tempHigh": data.main.temp_max,
-                    "tempLow": data.main.temp_min,
+                    "tempNow": data.main.temp.toPrecision(2) + "°",
+                    "tempHigh": data.main.temp_max.toPrecision(2) + "°",
+                    "tempLow": data.main.temp_min.toPrecision(2) + "°",
                     "humidity": data.main.humidity,
+                    "condition": data.weather[0].description
                 }
 
                 console.log(responseData)
