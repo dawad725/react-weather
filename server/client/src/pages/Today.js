@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
 
-const useStyles = theme => ({
+const useStyles = makeStyles(theme => ({
     title: {
         textAlign: "center",
         margin: "0",
@@ -10,64 +10,46 @@ const useStyles = theme => ({
         fontSize: "75px",
         color: "white"
     }
-})
+}));
 
 
-class Today extends Component {
-    constructor() {
-        super()
+export default function Today() {
+    const classes = useStyles();
+    const [weatherData, setWeatherData] = useState({});
 
-        this.state = {
-            weatherData: []
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const fetchWeather = await axios.get('/api/search-city-weather');
+
+                setWeatherData(fetchWeather.data)
+            } catch (e) {
+                console.log('our error is: ', e)
+            }
         }
-    }
 
-    getWeatherDetails() {
+        fetchData();
 
-        axios.get('/api/search-city-weather')
-            .then(response => {
-                this.setState({ weatherData: response.data.main })
-            })
-            .catch(err => console.log(err))
+    }, []);
 
-        console.log("bam!", this.state.weatherData)
+    console.log("data", weatherData)
 
-    }
+    return (
+        <>
+            <div className={classes.title}>
+                <p>Today's weather is... </p>
+            </div>
+            <div>
+                {weatherData.tempNow}
+            </div>
+        </>
+    );
 
-    componentDidMount() {
-        this.getWeatherDetails();
-    }
-
-
-    renderWeather() {
-        // console.log("boom", this.state.weatherData.data.main)
-        return <div>{this.state.weatherData.temp}</div>
-    }
-
-    render() {
-        const { classes } = this.props;
-        console.log("WEATHER DATA", this.state.weatherData)
-
-
-
-
-        return (
-            <>
-                <div className={classes.title}>
-                    <p>Today's weather is... </p>
-                </div>
-                <div>
-                    {this.renderWeather()}
-                </div>
-            </>
-        )
-    }
 }
 
 
 
 
-export default withStyles(useStyles)(Today);
 
 
 

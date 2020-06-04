@@ -41,17 +41,17 @@ router
                 let data = res.data
                 console.log(" datalist", data)
 
-                // let weatherData = {
-                //     "city": data.name,
-                //     "icon": data.weather[0].icon,
-                //     "tempNow": data.main.temp,
-                //     "tempHigh": data.main.temp_max,
-                //     "tempLow": data.main.temp_min,
-                //     "humidity": data.main.humidity,
-                // }
+                let responseData = {
+                    "city": data.name,
+                    "icon": data.weather[0].icon,
+                    "tempNow": data.main.temp,
+                    "tempHigh": data.main.temp_max,
+                    "tempLow": data.main.temp_min,
+                    "humidity": data.main.humidity,
+                }
 
-                console.log(data)
-                return data
+                console.log(responseData)
+                return responseData
 
             } catch (e) {
 
@@ -59,8 +59,8 @@ router
             }
         }
 
-        getWeatherData().then(data => {
-            res.send(data)
+        getWeatherData().then(responseData => {
+            res.send(responseData)
         })
 
     })
