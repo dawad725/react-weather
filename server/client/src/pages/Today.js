@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Box, Paper, Typography } from '@material-ui/core';
+import Navbar from '../components/Navbar'
 import axios from 'axios'
 
 
@@ -85,7 +86,8 @@ export default function Today() {
     console.log("data", weatherData)
 
     return (
-
+        <>
+        <Navbar />
         <div className={classes.root}>
             <Box className={classes.title}>
                 Today's temperature is {weatherData.tempNow}F
@@ -98,6 +100,7 @@ export default function Today() {
                 </Grid>
             </Paper>
         </div>
+        </>
     );
 
 }

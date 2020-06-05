@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from "../components/Form"
 import { makeStyles } from '@material-ui/core/styles';
+import Navbar from '../components/Navbar'
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,6 +21,7 @@ export default function Home() {
     return (
 
         <div>
+            <Navbar />
             <h1 className={classes.title}>
                 Dave's Weather Station
                 </h1>
