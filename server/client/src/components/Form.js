@@ -9,7 +9,8 @@ import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        textAlign: "center"
+        textAlign: "center",
+        paddingTop: "2em"
     },
     root: {
         '& > *': {
@@ -44,7 +45,7 @@ export default function Form() {
             .post(url, { city: city })
 
         // after we send the information to the backend 
-        // we send the user to the next page we want them to see 
+        // we redirect the user to the next page we want them to see 
         history.push('./todays-weather')
     }
 

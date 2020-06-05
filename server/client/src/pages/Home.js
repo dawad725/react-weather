@@ -7,7 +7,7 @@ const useStyles = theme => ({
     title: {
         textAlign: "center",
         margin: "0",
-        padding: "1em"
+        paddingTop: "30%"
     }
 })
 

@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
+import { Grid, Box, Paper, Typography } from '@material-ui/core';
 import axios from 'axios'
-import { sizeHeight } from '@material-ui/system';
-
 
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        textAlign: "center",
+        paddingTop: "30%",
+        paddingBottom: "20px"
     },
     title: {
         textAlign: "center",
         margin: "0",
         padding: "1em",
-        fontSize: "75px",
-        color: "white"
+        fontSize: "40px",
+        color: "white",
+        [theme.breakpoints.only("xs")]: {
+            fontSize: "25px"
+        }
     },
     paper: {
         padding: theme.spacing(2),
@@ -25,11 +27,36 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.text.secondary,
         maxWidth: 500,
         margin: "auto",
-        fontSize: "30px"
+        fontSize: "30px",
+        backgroundColor: "white", 
+        [theme.breakpoints.only("xs")]: {
+            maxWidth: 300,
+            fontSize: "15px"
+        }
     },
     icons: {
-        textAlign: 'center',
-        // sizeHeight: "100px"
+        textAlign: "center",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: '100%',
+        maxHeight: '100%',
+    },
+
+    image: {
+        textAlign: "center",
+        justifyItems: "center"
+    },
+    text: {
+        textAlign: "center",
+        fontFamily: "Helvetica",
+        fontSize : "40px",
+        [theme.breakpoints.only("xs")]: {
+            fontSize: "20px"
+        }
+    },
+    container: {
+        textAlign: "center"
     }
 }));
 
@@ -47,7 +74,7 @@ export default function Today() {
 
             } catch (e) {
 
-                console.log('our error is: ', e)
+                console.log('we have an error: ', e)
             }
         }
 
@@ -58,19 +85,18 @@ export default function Today() {
     console.log("data", weatherData)
 
     return (
+
         <div className={classes.root}>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <Box className={classes.paper}>
-                        Today's temperature is {weatherData.tempNow} F
-                    </Box>
+            <Box className={classes.title}>
+                Today's temperature is {weatherData.tempNow} F
+            </Box>
+            <Paper className={classes.paper}>
+                <Grid item s={6} className={classes.container}>
+                    <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
+                    <Typography className={classes.text}>{weatherData.condition}</Typography>
+                    <Typography className={classes.text}>High of {weatherData.tempHigh} F today</Typography>
                 </Grid>
-                <Grid item xs={3}>
-                    <Paper>
-                        <img className={classes.icons} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} />
-                    </Paper>
-                </Grid>
-            </Grid>
+            </Paper>
         </div>
     );
 
