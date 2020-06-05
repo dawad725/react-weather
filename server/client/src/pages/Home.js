@@ -1,53 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Form from "../components/Form"
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 
-const useStyles = theme => ({
+const useStyles = makeStyles(theme => ({
     title: {
         textAlign: "center",
         margin: "0",
-        paddingTop: "30%"
+        paddingTop: "30%",
+        color: "white"
     }
-})
+}))
 
 
+export default function Home() {
 
-class Home extends Component {
-    constructor() {
-        super()
+    const classes = useStyles();
 
-        this.state = {
-            todaysWeather: [],
-            fiveDayForecast: []
-        }
+    return (
 
-    }
-
-
-
-
-    render() {
-
-        const { classes } = this.props;
-
-        return (
-
-            <div>
-                <h1 className={classes.title}>
-                    Dave's Weather Station
+        <div>
+            <h1 className={classes.title}>
+                Dave's Weather Station
                 </h1>
-                <Form />
-            </div>
+            <Form />
+        </div>
 
-        )
-    }
-
-
+    )
 }
 
 
 
 
 
-export default withStyles(useStyles)(Home);
+

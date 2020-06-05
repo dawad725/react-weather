@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         textAlign: "center",
-        paddingTop: "30%",
+        paddingTop: "25%",
         paddingBottom: "20px"
     },
     title: {
@@ -88,13 +88,13 @@ export default function Today() {
 
         <div className={classes.root}>
             <Box className={classes.title}>
-                Today's temperature is {weatherData.tempNow} F
+                Today's temperature is {weatherData.tempNow}F
             </Box>
             <Paper className={classes.paper}>
-                <Grid item s={6} className={classes.container}>
+                <Grid item s={12} className={classes.container}>
                     <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
                     <Typography className={classes.text}>{weatherData.condition}</Typography>
-                    <Typography className={classes.text}>High of {weatherData.tempHigh} F today</Typography>
+                    <Typography className={classes.text}>High of {weatherData.tempHigh}F today</Typography>
                 </Grid>
             </Paper>
         </div>
