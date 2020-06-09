@@ -4,6 +4,8 @@ const axios = require('axios');
 
 // Initializing this variable globally so it can be used in our get route 
 let city;
+const apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}&`
+const units = `units=imperial`
 
 router
     .post('/api/search-city', (req, res, next) => {
@@ -21,8 +23,6 @@ router
     .get('/api/search-city-weather', (req, res) => {
 
         const baseURL = `http://api.openweathermap.org/data/2.5/weather?q=`;
-        const apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}&`
-        const units = `units=imperial`
 
         //This function creates the url we need for our API call below 
         const searchedCity = (baseURL, apiKey, units) => {
@@ -39,7 +39,7 @@ router
 
                 let res = await axios.get(apiUrl)
                 let data = res.data
-                console.log(" datalist", data)
+                // console.log(" datalist", data)
 
                 let responseData = {
                     "city": data.name,
@@ -69,7 +69,58 @@ router
 
 router
     .get("/api/get-the-five-day", (req, res) => {
+        const weekBaseUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
+        const apiWeekUrl = (weekBaseUrl, apiKey, units) => {
+            let weekUrl = weekBaseUrl + city + apiKey + units
+            return weekUrl
+        }
+        // Here we are creating the url we will use to run our search 
+        // based on the users inputed city
+        const forecastUrl = apiWeekUrl(weekBaseUrl, apiKey, units)
+
+        const getOneWeekWeatherData = async () => {
+            try {
+
+                let req = await axios.get(forecastUrl)
+
+                let data = req.data
+
+                // We are using this array to store our data we want from the request
+                let forecast = [];
+
+                // Here we are looping through the data that we are receiving from the request
+                for (let i = 0; i < data.list.length; i++) {
+                    // This conditional isolates the same time for each day
+                    if (data.list[i].dt_txt.includes("00:00:00")) {
+                        let weekDataObj = {
+                            "temp": data.list[i].main.temp.toPrecision(2) + "°",
+                            "condition": data.list[i].weather[0].description,
+                            "icon": data.list[i].weather[0].icon,
+                            "day": data.list[i].dt_txt,
+                            "tempHigh": data.list[i].main.temp_max.toPrecision(2) + "°",
+                            "tempLow": data.list[i].main.temp_min.toPrecision(2) + "°",
+                            "humidity": data.list[i].main.humidity,
+                        }
+                        // As we loop through we push our data into the "forecast" array
+                        forecast.push(weekDataObj);
+                    }
+
+                }
+
+
+                console.log("data", forecast)
+                return forecast
+
+            } catch (e) {
+
+                return e
+            }
+        }
+
+        getOneWeekWeatherData().then(forecast => {
+            res.send(forecast)
+        })
     })
 
 module.exports = router

@@ -93,6 +93,9 @@ export default function Today() {
 
         const url = "/api/get-the-five-day"
 
+        axios
+            .get(url)
+
         history.push('./weekly-forecast')
     }
 
@@ -113,7 +116,8 @@ export default function Today() {
                     <Grid item s={12} className={classes.container}>
                         <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
                         <Typography className={classes.text}>{weatherData.condition}</Typography>
-                        <Typography className={classes.text}>High of {weatherData.tempHigh}F today</Typography>
+                        <Typography className={classes.text}>High of {weatherData.tempHigh}F</Typography>
+                        <Typography className={classes.text}>Low of {weatherData.tempLow}F</Typography>
                     </Grid>
                 </Paper>
                 <Grid item s={12} className={classes.container}>
