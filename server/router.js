@@ -66,4 +66,10 @@ router
 
     })
 
+
+router
+    .get("/api/get-the-five-day", (req, res) => {
+
+    })
+
 module.exports = router

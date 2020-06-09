@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none"
     },
     appbar: {
+        // backgroundColor: "#5588a3"
         backgroundColor: "#5588a3"
     }
 }));
@@ -28,7 +29,6 @@ export default function Navbar() {
         <div className={classes.root}>
             <AppBar
                 position="fixed"
-                color="white"
                 className={classes.appbar}
             >
                 <Toolbar>
