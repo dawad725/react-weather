@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     title: {
         textAlign: "center",
         margin: "0",
-        paddingTop: "30%",
+        paddingTop: "20%",
         color: "white"
     }
 }))
