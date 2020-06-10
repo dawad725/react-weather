@@ -36,6 +36,6 @@ const port = process.env.PORT || 5000;
 app.use(router)
 
 app.listen(port, () => {
-    console.log('Node.js listening on port ' + port)
+    console.log('Nodemon listening on port ' + port)
 })
 

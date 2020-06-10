@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Grid, Box, Paper, Typography, Button } from '@material-ui/core';
 import Navbar from '../components/Navbar'
-// import axios from 'axios'
+import axios from 'axios'
 // import { useHistory } from 'react-router-dom';
 
 
@@ -64,26 +64,27 @@ const useStyles = makeStyles(theme => ({
 
 export default function Week() {
     const classes = useStyles();
+    const [weatherData, setWeatherData] = useState({});
+    const apiUrl = "/api/get-the-five-day"
 
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const fetchWeather = await axios.get(apiUrl);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const fetchWeather = await axios.get('/api/search-city-weather');
+                setWeatherData(fetchWeather.data)
 
-    //             setWeatherData(fetchWeather.data)
+            } catch (e) {
 
-    //         } catch (e) {
+                console.log('we have an error: ', e)
+            }
+        }
 
-    //             console.log('we have an error: ', e)
-    //         }
-    //     }
+        fetchData();
 
-    //     fetchData();
+    }, []);
 
-    // }, []);
-
-
+    console.log("Boop", weatherData)
 
 
     return (
