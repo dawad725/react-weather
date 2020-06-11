@@ -110,6 +110,7 @@ router
 
 
                 console.log("data", forecast)
+                // Here we are returning our array of data
                 return forecast
 
             } catch (e) {
