@@ -73,6 +73,9 @@ const useStyles = makeStyles(theme => ({
         display: 'inline-block',
         margin: '0 2px',
         transform: 'scale(0.8)',
+    },
+    cards: {
+        paddingLeft: "50px"
     }
 }));
 
@@ -117,18 +120,30 @@ export default function Week() {
     //     </Card>
     // </Grid>
 
-    const weatherCard = weatherData.map((card, index) =>
-        <div key={index}>{card.temp}</div>
-    );
+
+    // if (!weatherData.length) return (<p>Loading...</p>);
+
+    const weatherCard =
+
+        !weatherData.length ? (<p>Loading...</p>) :
+
+            weatherData.map((card, index) => {
+
+                console.log(card, "cards")
+                return (
+                    <div className={classes.cards} key={index}>{card.temp}</div>
+                )
+            })
 
     return (
+
         <>
             <Navbar />
 
             <div className={classes.card}>
-                <Grid container spacing={4}>
-                    {weatherCard}
-                </Grid>
+                {/* <Grid container spacing={4}> */}
+                {weatherCard}
+                {/* </Grid> */}
             </div>
         </>
     );
