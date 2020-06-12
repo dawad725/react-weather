@@ -35,14 +35,14 @@ const useStyles = makeStyles(theme => ({
             fontSize: "15px"
         }
     },
-    icons: {
-        textAlign: "center",
-        display: "block",
-        marginLeft: "auto",
-        marginRight: "auto",
-        maxWidth: '100%',
-        maxHeight: '100%',
-    },
+    // icons: {
+    //     textAlign: "center",
+    //     display: "block",
+    //     marginLeft: "auto",
+    //     marginRight: "auto",
+    //     maxWidth: '100%',
+    //     maxHeight: '100%',
+    // },
 
     image: {
         textAlign: "center",
@@ -60,9 +60,6 @@ const useStyles = makeStyles(theme => ({
         textAlign: "center",
         paddingTop: "20px"
     },
-    button: {
-
-    }
 }));
 
 
@@ -129,7 +126,6 @@ export default function Today() {
                             variant="contained"
                             color="primary"
                             onClick={getFiveDayForecast}
-                            className={classes.button}
                         >
                             Next 5 days
                                 </Button>

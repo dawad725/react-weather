@@ -1,5 +1,5 @@
-body {
-        background: url('./images/blue_sky.jpg')no-repeat center center;
+body, html {
+        background: url('./images/blue_sky.jpg')no-repeat center center fixed;
         width: 100vw;
         height: 100vh;
         background-position: center;

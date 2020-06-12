@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Grid, Box, Paper, Typography, Button } from '@material-ui/core';
+import { Card, Grid, Typography } from '@material-ui/core';
 import Navbar from '../components/Navbar'
 import axios from 'axios'
-// import { useHistory } from 'react-router-dom';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles(theme => ({
@@ -70,9 +68,6 @@ export default function Week() {
             return (
                 <Grid item
                     key={index}
-                    justify="center"
-                    direction="row"
-                    alignItems="center"
                     sm={4}
                     md={2}
                     xs={8}
