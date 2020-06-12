@@ -8,74 +8,18 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        // flexGrow: 1,
-        // textAlign: "center",
-        // paddingTop: "20%",
-        // minWidth: "275px",
-        maxWidth: "275px"
-
-    },
     title: {
-        // textAlign: "center",
-        // margin: "0",
-        // padding: "1em",
         fontSize: "14px",
-        // color: "white",
-        // [theme.breakpoints.only("xs")]: {
-        //     fontSize: 10
-        // }
-    },
-    // paper: {
-    //     padding: theme.spacing(2),
-    //     textAlign: 'center',
-    //     color: theme.palette.text.secondary,
-    //     maxWidth: 500,
-    //     margin: "auto",
-    //     fontSize: "30px",
-    //     backgroundColor: "white",
-    //     [theme.breakpoints.only("xs")]: {
-    //         maxWidth: 300,
-    //         fontSize: "15px"
-    //     }
-    // },
-    // icons: {
-    //     textAlign: "center",
-    //     display: "block",
-    //     marginLeft: "auto",
-    //     marginRight: "auto",
-    //     maxWidth: '100%',
-    //     maxHeight: '100%',
-    // },
-
-    // image: {
-    //     textAlign: "center",
-    //     justifyItems: "center"
-    // },
-    // text: {
-    //     textAlign: "center",
-    //     fontFamily: "Helvetica",
-    //     fontSize: "40px",
-    //     [theme.breakpoints.only("xs")]: {
-    //         fontSize: "20px"
-    //     }
-    // },
-    // container: {
-    //     textAlign: "center"
-    // },
-    pos: {
-        marginBottom: 12,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
     },
     cards: {
         paddingTop: "20%",
-        marginLeft: "100px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         [theme.breakpoints.only("xs")]: {
-
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
         }
     },
     card: {
@@ -124,8 +68,16 @@ export default function Week() {
             console.log(card, "cards")
 
             return (
-                <Grid item key={index} xs={2}>
-                    <Card className={classes.root} justify="center">
+                <Grid item
+                    key={index}
+                    justify="center"
+                    direction="row"
+                    alignItems="center"
+                    sm={4}
+                    md={2}
+                    xs={8}
+                >
+                    <Card>
                         <CardContent className={classes.card}>
                             <Typography>
                                 {card.temp}
