@@ -75,6 +75,9 @@ export default function Week() {
                     <Card>
                         <CardContent className={classes.card}>
                             <Typography>
+                                {card.day}
+                            </Typography>
+                            <Typography>
                                 {card.temp}
                             </Typography>
                             <img className={classes.image} src={`http://openweathermap.org/img/wn/${card.icon}@2x.png`} alt="weather-icon" />

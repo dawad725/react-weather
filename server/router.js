@@ -1,6 +1,7 @@
 require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' });
 const router = require('express').Router();
 const axios = require('axios');
+const moment = require('moment');
 
 // Initializing this variable globally so it can be used in our get route 
 let city;
@@ -97,7 +98,7 @@ router
                             "temp": data.list[i].main.temp.toPrecision(2) + "°",
                             "condition": data.list[i].weather[0].description,
                             "icon": data.list[i].weather[0].icon,
-                            "day": data.list[i].dt_txt,
+                            "day": moment(data.list[i].dt_txt).format('dddd'),
                             "tempHigh": data.list[i].main.temp_max.toPrecision(2) + "°",
                             "tempLow": data.list[i].main.temp_min.toPrecision(2) + "°",
                             "humidity": data.list[i].main.humidity,

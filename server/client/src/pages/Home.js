@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
         textAlign: "center",
         margin: "0",
         paddingTop: "20%",
-        color: "white"
+        color: "white",
     }
 }))
 
