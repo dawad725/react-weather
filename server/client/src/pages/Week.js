@@ -16,9 +16,6 @@ const useStyles = makeStyles(theme => ({
         maxWidth: "275px"
 
     },
-    card: {
-        paddingTop: "20%",
-    },
     title: {
         // textAlign: "center",
         // margin: "0",
@@ -75,7 +72,14 @@ const useStyles = makeStyles(theme => ({
         transform: 'scale(0.8)',
     },
     cards: {
-        paddingLeft: "50px"
+        paddingTop: "20%",
+        marginLeft: "100px",
+        [theme.breakpoints.only("xs")]: {
+
+        }
+    },
+    card: {
+        textAlign: "center"
     }
 }));
 
@@ -110,41 +114,45 @@ export default function Week() {
 
     console.log("Boop", weatherData)
 
-    // <Grid item key={card} xs={12} sm={6} md={4}>
-    //     <Card className={classes.root} justify="center">
-    //         <CardContent>
-    //             <Typography>
-    //                 {card.temp}
-    //             </Typography>
-    //         </CardContent>
-    //     </Card>
-    // </Grid>
-
 
     // if (!weatherData.length) return (<p>Loading...</p>);
 
-    const weatherCard =
+    const weatherCard = !weatherData.length ? (<h1>Loading...</h1>) :
 
-        !weatherData.length ? (<p>Loading...</p>) :
+        weatherData.map((card, index) => {
 
-            weatherData.map((card, index) => {
+            console.log(card, "cards")
 
-                console.log(card, "cards")
-                return (
-                    <div className={classes.cards} key={index}>{card.temp}</div>
-                )
-            })
+            return (
+                <Grid item key={index} xs={2}>
+                    <Card className={classes.root} justify="center">
+                        <CardContent className={classes.card}>
+                            <Typography>
+                                {card.temp}
+                            </Typography>
+                            <img className={classes.image} src={`http://openweathermap.org/img/wn/${card.icon}@2x.png`} alt="weather-icon" />
+                            <Typography>
+                                {card.condition}
+                            </Typography>
+                            <Typography>
+                                High of {card.tempHigh}
+                            </Typography>
+                            <Typography>
+                                Low of {card.tempLow}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>
+            );
+        });
 
     return (
 
         <>
             <Navbar />
-
-            <div className={classes.card}>
-                {/* <Grid container spacing={4}> */}
+            <Grid container className={classes.cards} spacing={2} >
                 {weatherCard}
-                {/* </Grid> */}
-            </div>
+            </Grid>
         </>
     );
 
