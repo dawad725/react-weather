@@ -10,7 +10,10 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         textAlign: "center",
-        paddingTop: "30%",
+        paddingTop: "15%",
+        [theme.breakpoints.only("xs")]: {
+            paddingTop: "30%",
+        }
     },
     paper: {
         padding: theme.spacing(2),
@@ -45,7 +48,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: "200px"
     },
     buttonContainer: {
-        paddingTop: "10%",
+        paddingTop: "5%",
         [theme.breakpoints.only("xs")]: {
             paddingTop: "15%",
         }

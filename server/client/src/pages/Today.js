@@ -16,10 +16,10 @@ const useStyles = makeStyles(theme => ({
         textAlign: "center",
         margin: "0",
         fontSize: "40px",
-        paddingBottom: "20px",
+        paddingBottom: "40px",
         color: "white",
         [theme.breakpoints.only("xs")]: {
-            fontSize: "25px"
+            fontSize: "20px"
         }
     },
     paper: {
@@ -53,6 +53,12 @@ const useStyles = makeStyles(theme => ({
     },
     button: {
         backgroundColor: "#5588a3"
+    },
+    buttonContainer: {
+        paddingTop: "5%",
+        [theme.breakpoints.only("xs")]: {
+            paddingTop: "15%",
+        }
     }
 }));
 
@@ -102,7 +108,7 @@ export default function Today() {
                 <Grid item s={12} className={classes.container}>
                     <Box className={classes.title}>
                         Today's temperature in {weatherData.city} is {weatherData.tempNow}F
-                                </Box>
+                    </Box>
                 </Grid>
                 <Paper className={classes.paper}>
                     <Grid item s={12} className={classes.container}>
@@ -113,14 +119,16 @@ export default function Today() {
                     </Grid>
                 </Paper>
                 <Grid item s={12} className={classes.container}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={getFiveDayForecast}
-                        className={classes.button}
-                    >
-                        Next 5 days
+                    <div className={classes.buttonContainer}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={getFiveDayForecast}
+                            className={classes.button}
+                        >
+                            Next 5 days
                     </Button>
+                    </div>
                 </Grid>
             </div>
         </>

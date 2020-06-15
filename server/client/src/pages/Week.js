@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
         paddingTop: "15%",
         color: "white",
         [theme.breakpoints.only("xs")]: {
-            fontSize: "25px"
+            fontSize: "25px",
+            paddingTop: "25%"
         }
     },
     cards: {
