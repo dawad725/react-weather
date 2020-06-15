@@ -120,7 +120,7 @@ export default function Today() {
                         className={classes.button}
                     >
                         Next 5 days
-                        </Button>
+                    </Button>
                 </Grid>
             </div>
         </>

@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     title: {
         fontSize: "40px",
         textAlign: "center",
-        paddingTop: "20%",
+        paddingTop: "15%",
         color: "white",
         [theme.breakpoints.only("xs")]: {
             fontSize: "25px"
