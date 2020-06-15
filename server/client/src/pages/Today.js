@@ -4,6 +4,7 @@ import { Grid, Box, Paper, Typography, Button } from '@material-ui/core';
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
+import ErrorMessage from './ErrorMessage'
 
 
 const useStyles = makeStyles(theme => ({
@@ -104,33 +105,35 @@ export default function Today() {
     return (
         <>
             <Navbar />
-            <div className={classes.root}>
-                <Grid item s={12} className={classes.container}>
-                    <Box className={classes.title}>
-                        Today's temperature in {weatherData.city} is {weatherData.tempNow}F
-                    </Box>
-                </Grid>
-                <Paper className={classes.paper}>
+            {weatherData.name === "Error" ? <ErrorMessage /> :
+                <div className={classes.root}>
                     <Grid item s={12} className={classes.container}>
-                        <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
-                        <Typography className={classes.text}>{weatherData.condition}</Typography>
-                        <Typography className={classes.text}>High of {weatherData.tempHigh}F</Typography>
-                        <Typography className={classes.text}>Low of {weatherData.tempLow}F</Typography>
+                        <Box className={classes.title}>
+                            Today's temperature in {weatherData.city} is {weatherData.tempNow}F
+                    </Box>
                     </Grid>
-                </Paper>
-                <Grid item s={12} className={classes.container}>
-                    <div className={classes.buttonContainer}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={getFiveDayForecast}
-                            className={classes.button}
-                        >
-                            Next 5 days
+                    <Paper className={classes.paper}>
+                        <Grid item s={12} className={classes.container}>
+                            <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
+                            <Typography className={classes.text}>{weatherData.condition}</Typography>
+                            <Typography className={classes.text}>High of {weatherData.tempHigh}F</Typography>
+                            <Typography className={classes.text}>Low of {weatherData.tempLow}F</Typography>
+                        </Grid>
+                    </Paper>
+                    <Grid item s={12} className={classes.container}>
+                        <div className={classes.buttonContainer}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={getFiveDayForecast}
+                                className={classes.button}
+                            >
+                                Next 5 days
                     </Button>
-                    </div>
-                </Grid>
-            </div>
+                        </div>
+                    </Grid>
+                </div>}
+
         </>
 
     );
