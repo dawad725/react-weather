@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         textAlign: "center",
-        paddingTop: "20%",
+        paddingTop: "15%",
     },
     title: {
         textAlign: "center",
         margin: "0",
-        padding: "1em",
         fontSize: "40px",
+        paddingBottom: "20px",
         color: "white",
         [theme.breakpoints.only("xs")]: {
             fontSize: "25px"
@@ -35,15 +35,6 @@ const useStyles = makeStyles(theme => ({
             fontSize: "15px"
         }
     },
-    // icons: {
-    //     textAlign: "center",
-    //     display: "block",
-    //     marginLeft: "auto",
-    //     marginRight: "auto",
-    //     maxWidth: '100%',
-    //     maxHeight: '100%',
-    // },
-
     image: {
         textAlign: "center",
         justifyItems: "center"
@@ -58,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     },
     container: {
         textAlign: "center",
-        paddingTop: "20px"
+        paddingTop: "15px"
     },
 }));
 
@@ -103,39 +94,33 @@ export default function Today() {
     // if (!weatherData.length) return (<h1>Loading...</h1>)
     return (
         <>
-            {/* {!weatherData.length ? (<h1>Loading...</h1>
-            ) : ( */}
-            <>
-                <Navbar />
-                <div className={classes.root}>
-                    <Grid item s={12} className={classes.container}>
-                        <Box className={classes.title}>
-                            Today's temperature in {weatherData.city} is {weatherData.tempNow}F
+            <Navbar />
+            <div className={classes.root}>
+                <Grid item s={12} className={classes.container}>
+                    <Box className={classes.title}>
+                        Today's temperature in {weatherData.city} is {weatherData.tempNow}F
                                 </Box>
-                    </Grid>
-                    <Paper className={classes.paper}>
-                        <Grid item s={12} className={classes.container}>
-                            <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
-                            <Typography className={classes.text}>{weatherData.condition}</Typography>
-                            <Typography className={classes.text}>High of {weatherData.tempHigh}F</Typography>
-                            <Typography className={classes.text}>Low of {weatherData.tempLow}F</Typography>
-                        </Grid>
-                    </Paper>
+                </Grid>
+                <Paper className={classes.paper}>
                     <Grid item s={12} className={classes.container}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={getFiveDayForecast}
-                        >
-                            Next 5 days
-                        </Button>
+                        <img className={classes.image} src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather-icon" />
+                        <Typography className={classes.text}>{weatherData.condition}</Typography>
+                        <Typography className={classes.text}>High of {weatherData.tempHigh}F</Typography>
+                        <Typography className={classes.text}>Low of {weatherData.tempLow}F</Typography>
                     </Grid>
-                </div>
-            </>
-            {/* )} */}
-
-
+                </Paper>
+                <Grid item s={12} className={classes.container}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={getFiveDayForecast}
+                    >
+                        Next 5 days
+                        </Button>
+                </Grid>
+            </div>
         </>
+
     );
 
 }

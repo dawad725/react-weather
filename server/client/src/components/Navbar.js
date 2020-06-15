@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none"
     },
     appbar: {
-        // backgroundColor: "#5588a3"
         backgroundColor: "#5588a3"
     }
 }));

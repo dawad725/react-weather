@@ -7,10 +7,16 @@ import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles(theme => ({
     title: {
-        fontSize: "14px",
+        fontSize: "40px",
+        textAlign: "center",
+        paddingTop: "20%",
+        color: "white",
+        [theme.breakpoints.only("xs")]: {
+            fontSize: "25px"
+        }
     },
     cards: {
-        paddingTop: "20%",
+        paddingTop: "5%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -22,6 +28,9 @@ const useStyles = makeStyles(theme => ({
     },
     card: {
         textAlign: "center"
+    },
+    loading: {
+        color: "white"
     }
 }));
 
@@ -59,7 +68,7 @@ export default function Week() {
 
     // if (!weatherData.length) return (<p>Loading...</p>);
 
-    const weatherCard = !weatherData.length ? (<h1>Loading...</h1>) :
+    const weatherCard = !weatherData.length ? (<h1 className={classes.loading}>Loading...</h1>) :
 
         weatherData.map((card, index) => {
 
@@ -75,7 +84,7 @@ export default function Week() {
                     <Card>
                         <CardContent className={classes.card}>
                             <Typography>
-                                {card.day}
+                                <strong>{card.day}</strong>
                             </Typography>
                             <Typography>
                                 {card.temp}
@@ -100,6 +109,7 @@ export default function Week() {
 
         <>
             <Navbar />
+            <Typography className={classes.title}>Your Daily Forecast</Typography>
             <Grid container className={classes.cards} spacing={2} >
                 {weatherCard}
             </Grid>
