@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
         textAlign: "center",
         paddingTop: "15px"
     },
+    button: {
+        backgroundColor: "#5588a3"
+    }
 }));
 
 
@@ -114,6 +117,7 @@ export default function Today() {
                         variant="contained"
                         color="primary"
                         onClick={getFiveDayForecast}
+                        className={classes.button}
                     >
                         Next 5 days
                         </Button>

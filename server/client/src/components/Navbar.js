@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
     },
     text: {
-        color: "black",
-        textDecoration: "none"
+        color: "white",
+        textDecoration: "none",
+        fontWeight: "bold"
     },
     appbar: {
         backgroundColor: "#5588a3"

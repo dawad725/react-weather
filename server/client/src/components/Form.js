@@ -18,8 +18,11 @@ const useStyles = makeStyles(theme => ({
             width: "350px"
         },
     },
-    button: {
+    buttonBox: {
         marginTop: "1em"
+    },
+    button: {
+        backgroundColor: "#5588a3"
     }
 }));
 
@@ -69,11 +72,12 @@ export default function Form() {
                         />
                     </form>
                 </Grid>
-                <Grid item className={classes.button} xs={12}>
+                <Grid item className={classes.buttonBox} xs={12}>
                     <Button
                         variant="contained"
                         color="primary"
                         onClick={submitValue}
+                        className={classes.button}
                     >
                         Search
                     </Button>
