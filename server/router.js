@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/.env.' });
+// require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' });
 const router = require('express').Router();
 const axios = require('axios');
 const moment = require('moment');
@@ -14,7 +14,7 @@ router
 
         city = req.body.city
 
-        console.log(city)
+        // console.log(city)
         res.end(city)
     })
 
@@ -52,7 +52,7 @@ router
                     "condition": data.weather[0].description
                 }
 
-                console.log(responseData)
+                // console.log(responseData)
                 return responseData
 
             } catch (e) {
