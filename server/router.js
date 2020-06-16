@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/.env' });
+require('dotenv').config({ path: __dirname + '/.env.' });
 const router = require('express').Router();
 const axios = require('axios');
 const moment = require('moment');
