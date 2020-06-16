@@ -60,7 +60,7 @@ export default function ErrorMessage() {
     let history = useHistory();
     const classes = useStyles();
 
-    // this handles the click on the button within this component
+    // This handles the click on the button within this component
     // when clicked it directs the user to the hone page.
     const tryAgain = (e) => {
         e.preventDefault();
@@ -87,7 +87,7 @@ export default function ErrorMessage() {
                             onClick={tryAgain}
                             className={classes.button}
                         >
-                            Try Again
+                            Please try again
                     </Button>
                     </div>
                 </Grid>

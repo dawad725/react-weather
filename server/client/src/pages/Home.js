@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
         margin: "0",
         paddingTop: "20%",
         color: "white",
+        [theme.breakpoints.only("xs")]: {
+            fontSize: "25px"
+        }
     }
 }))
 

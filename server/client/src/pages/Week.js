@@ -45,7 +45,7 @@ export default function Week() {
 
     useEffect(() => {
 
-        // this function is async and returning data from 
+        // This function is async and returning data from 
         // the backend based on the users search
         async function fetchFiveDayData() {
             try {
@@ -67,7 +67,6 @@ export default function Week() {
     console.log("Boop", weatherData)
 
 
-    // if (!weatherData.length) return (<p>Loading...</p>);
 
     const weatherCard = !weatherData.length ? (<h1 className={classes.loading}>Loading...</h1>) :
 

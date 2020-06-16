@@ -86,16 +86,16 @@ export default function Today() {
 
     }, []);
 
-    // this function handles the button click on this page 
+    // This function handles the button click on this page 
     const getFiveDayForecast = (e) => {
         e.preventDefault();
 
         const url = "/api/get-the-five-day"
 
-        // when the button is clicked, we use axios to hit our back-end endpoint
+        // When the button is clicked, we use axios to hit our back-end endpoint
         axios
             .get(url)
-        // after that we send the user to the "week" page to see the data from the endpoint
+        // After that we send the user to the "week" page to see the data from the endpoint
         history.push('./weekly-forecast')
     }
 

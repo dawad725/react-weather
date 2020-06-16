@@ -31,7 +31,7 @@ router
             let newUrl = baseURL + city + apiKey + units;
             return newUrl
         }
-        //Our api with user inputed city 
+        //Our api with user provided city 
         const apiUrl = searchedCity(baseURL, apiKey, units);
 
 
@@ -77,7 +77,7 @@ router
             return weekUrl
         }
         // Here we are creating the url we will use to run our search 
-        // based on the users inputed city
+        // based on the users inputed city the previously used post route
         const forecastUrl = apiWeekUrl(weekBaseUrl, apiKey, units)
 
         const getOneWeekWeatherData = async () => {
@@ -104,6 +104,7 @@ router
                             "humidity": data.list[i].main.humidity,
                         }
                         // As we loop through we push our data into the "forecast" array
+                        // if it satisfies our conditional statement
                         forecast.push(weekDataObj);
                     }
 
@@ -111,6 +112,7 @@ router
 
 
                 console.log("data", forecast)
+
                 // Here we are returning our array of data
                 return forecast
 

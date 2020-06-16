@@ -6,7 +6,7 @@ import Week from "./pages/Week"
 import ErrorMessage from "./pages/ErrorMessage"
 
 
-// here is where we implement our browser router 
+// Here is where we implement our browser router 
 // and assign our components to our paths within our app
 function App() {
   return (
