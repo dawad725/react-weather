@@ -61,6 +61,7 @@ router
             }
         }
 
+        console.log("key", process.env.API_KEY)
         getWeatherData().then(responseData => {
             res.send(responseData)
         })
