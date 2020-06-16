@@ -2,7 +2,7 @@ import React from 'react';
 import Form from "../components/Form"
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../components/Navbar'
-
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -22,9 +22,12 @@ export default function Home() {
 
         <div>
             <Navbar />
-            <h1 className={classes.title}>
+            <Typography
+                className={classes.title}
+                variant="h3"
+            >
                 Dave's Weather Station
-                </h1>
+                </Typography>
             <Form />
         </div>
 

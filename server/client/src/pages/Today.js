@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-        maxWidth: 500,
+        maxWidth: 400,
         margin: "auto",
         fontSize: "30px",
         backgroundColor: "white",
@@ -101,7 +101,6 @@ export default function Today() {
 
 
     console.log("data", weatherData)
-    // if (!weatherData.length) return (<h1>Loading...</h1>)
     return (
         <>
             <Navbar />
@@ -128,7 +127,7 @@ export default function Today() {
                                 onClick={getFiveDayForecast}
                                 className={classes.button}
                             >
-                                Next 5 days
+                                Get the 5 day forecast
                     </Button>
                         </div>
                     </Grid>
