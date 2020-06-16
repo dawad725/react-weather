@@ -128,7 +128,7 @@ export default function Today() {
                                 className={classes.button}
                             >
                                 Get the 5 day forecast
-                    </Button>
+                            </Button>
                         </div>
                     </Grid>
                 </div>}

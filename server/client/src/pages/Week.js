@@ -89,7 +89,7 @@ export default function Week() {
                             <Typography>
                                 {card.temp}
                             </Typography>
-                            <img className={classes.image} src={`http://openweathermap.org/img/wn/${card.icon}@2x.png`} alt="weather-icon" />
+                            <img src={`http://openweathermap.org/img/wn/${card.icon}@2x.png`} alt="weather-icon" />
                             <Typography>
                                 {card.condition}
                             </Typography>
