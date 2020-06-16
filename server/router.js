@@ -1,9 +1,9 @@
-require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' });
+require('dotenv').config();
 const router = require('express').Router();
 const axios = require('axios');
 const moment = require('moment');
 
-// Initializing this variable globally so it can be used in our get route 
+// Initializing this variable globally so it can be used in our get routes
 let city;
 const apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}&`
 const units = `units=imperial`
