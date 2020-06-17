@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' || __dirname + '/.env' });
+require('dotenv').config({ path: __dirname + '/.env.production' || __dirname + '/.env.development' });
 const router = require('express').Router();
 const axios = require('axios');
 const moment = require('moment');
@@ -50,7 +50,9 @@ router
                     "tempLow": data.main.temp_min.toPrecision(2) + "°",
                     "humidity": data.main.humidity,
                     "condition": data.weather[0].description
+
                 }
+
 
                 // console.log(responseData)
                 return responseData
@@ -122,10 +124,15 @@ router
                 return e
             }
         }
-
+        4
         getOneWeekWeatherData().then(forecast => {
             res.send(forecast)
         })
     })
 
-module.exports = router
+
+router.get('/api/test', (req, res) => {
+    res.send({ name: 'Dave', key: process.env.API_KEY })
+}),
+
+    module.exports = router
