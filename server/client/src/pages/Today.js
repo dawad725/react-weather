@@ -72,9 +72,7 @@ export default function Today() {
     useEffect(() => {
         async function fetchData() {
             try {
-                // const fetchWeather = await axios.get('/api/search-city-weather');
-                const fetchWeather = await axios.get('/api/test');
-                console.log("hello", fetchWeather)
+                const fetchWeather = await axios.get('/api/search-city-weather');
 
                 setWeatherData(fetchWeather.data)
 
